@@ -30,7 +30,7 @@ body {
 
 .nushy {
   position: absolute; 
-  bottom: 8px; 
+  top: 8px; 
   left: 16px;
   text-align: left;
   font-size: 0.7rem;
