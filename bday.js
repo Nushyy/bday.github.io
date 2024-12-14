@@ -109,7 +109,8 @@ function animateParticle(el, isSparkle) {
 
 // Play chime sound
 function playChimeSound() {
-  const chime = new Audio('chime1.mp3'); // Add your chime sound file here
+  const chime = document.getElementById('chime-sound');
+  chime.currentTime = 0; // Reset to the start for consecutive clicks
   chime.play();
 }
 
