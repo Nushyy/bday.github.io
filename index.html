@@ -4,244 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="bday.js"></script>
+    <link rel="stylesheet" href="bday.css">
     <title>Happy Birthday Baby</title>
-    <style>
-      body {
-        margin: 0;
-        background: radial-gradient(circle, #020111, #000000);
-        overflow: hidden;
-        height: 100vh;
-        cursor: pointer;
-        font-family: "ARIAL", sans-serif;
-        color: white;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        filter: drop-shadow(0 0 15px #0000ff);
-      }
-
-      .instructions {
-        font-size: 2rem;
-        z-index: 10;
-        color: #6476e0;
-        text-shadow: 0 0 10px #44ff66, 0 0 20px #44ff66, 0 0 30px #00ff00;
-        animation-duration: 5s;
-      }
-
-      .sherap {
-        font-size: 2rem;
-        color: #6476e0;
-        text-shadow: 0 0 10px #44ff66, 0 0 20px #44ff66, 0 0 30px #00ff00;
-      }
-
-      .nushy {
-        position: absolute;
-        bottom: 8px;
-        left: 16px;
-        text-align: left;
-        font-size: 0.7rem;
-        color: #6476e0;
-        text-shadow: 0 0 50px #ffdde8, 0 0 20px #ef6969, 0 0 100px #00ff00;
-      }
-
-      .projectile {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        background: #7393b3;
-        clip-path: polygon(50% 0, 79% 90%, 2% 35%, 98% 35%, 21% 90%);
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.4), 0 0 50px #7393b3;
-      }
-
-      .particule {
-        position: absolute;
-        font-size: 2rem;
-        font-family: "arial", serif;
-        color: white;
-        transform: scale(0);
-        opacity: 0;
-        text-shadow: 0 0 5px #0000ff, 0 0 10px #eca7f4, 0 0 5px #0000ff;
-      }
-
-      .sparkle {
-        position: absolute;
-        width: 16px;
-        height: 16px;
-        background: #f8ca00;
-        clip-path: polygon(50% 0, 79% 90%, 2% 35%, 98% 35%, 21% 90%);
-        transform: scale(0);
-        opacity: 0;
-        box-shadow: 0 0 60px 30px #fff, 0 0 100px 60px #f0f, 0 0 140px 90px #0ff;
-      }
-
-      /* Media Queries for Responsiveness */
-      @media (max-width: 600px) {
-        .instructions {
-          font-size: 1.5rem;
-        }
-        .sherap {
-          font-size: 1.5rem;
-        }
-        .nushy {
-          font-size: 0.6rem;
-        }
-        .projectile {
-          width: 15px;
-          height: 15px;
-        }
-        .particule {
-          font-size: 1.5rem;
-        }
-      }
-
-      @media (max-width: 900px) {
-        .instructions {
-          font-size: 1.8rem;
-        }
-        .sherap {
-          font-size: 1.8rem;
-        }
-        .nushy {
-          font-size: 0.65rem;
-        }
-        .projectile {
-          width: 18px;
-          height: 18px;
-        }
-      }
-
-      @media (max-width: 1200px) {
-        .instructions {
-          font-size: 2rem;
-        }
-        .sherap {
-          font-size: 2rem;
-        }
-      }
-
-      /* For general screen sizes (laptop, larger devices) */
-      @media (min-width: 1200px) {
-        .instructions {
-          font-size: 2.2rem;
-        }
-        .sherap {
-          font-size: 2.2rem;
-        }
-      }
-
-      /* Make sure everything scales and remains in the middle */
-      iframe {
-        max-width: 100%;
-        max-height: 100%;
-      }
-    </style>
   </head>
   <body>
-    <audio id="chime-sound" src="https://example.com/chime1.mp3" preload="auto"></audio>
-
-    <div style="position: fixed; top: 20px; left: 20px; filter: drop-shadow(0 0 15px #f44336); opacity: 75%;">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2y3opu08ybnMRziQFdvcZv?utm_source=generator&theme=0" width="100%" height="100" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <audio id="chime-sound" src="chime1.mp3" preload="auto"></audio>
+    <div style="position: fixed; top: 20px; left: 20px;filter: drop-shadow(0 0 15px #f44336); opacity: 75%;">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2y3opu08ybnMRziQFdvcZv?utm_source=generator&theme=0" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
-
     <div class="instructions"></div>
     <div class="sherap">HAPPY BIRTHDAY SHERAP</div>
     <div class="nushy">
-      <font color="#FFD147">**</font>
-      <br><font color="#ff46a2">_</font>I<font color="#ff46a2">_</font>
-      <br><font color="#ff46a2">__I___I__</font>
-      <br><font color="#ff46a2">I________I</font> ~<font color="red">♡︎</font>
-      <br>૮꒰ <font color="#ffb5c0">˶</font><font color="ffffff">•</font> ༝ <font color="ffffff">•</font><font color="#ffb5c0">˶</font>꒱ա &nbsp wuvv u
-      <br>&nbsp<font color="#ff46a2">_</font>I<font color="#ff46a2">_</font>◡<font color="#ff46a2">_</font>◡I<font color="#ff46a2">_</font>
-      <br><font color="#ff46a2">I</font>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<font color="#ff46a2">I</font>
-      <br><font color="#ff46a2">I</font>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<font color="#ff46a2">I</font>
-      <br><font color="#98FB98">THANUSHRI</font>
-      <br><font color="#ff46a2">--------------</font>
+      <font color="#FFD147">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp           **</font>
+      <br>&nbsp&nbsp&nbsp&nbsp&nbsp          <font color="#ff46a2">_</font>I<font color="#ff46a2">_</font>
+      <br>     <font color="#ff46a2">&nbsp__I___I__</font>
+      <br>     <font color="#ff46a2">I________I</font>   ~<font color=red>♡︎</font>
+      <br>    ૮꒰ <font color="#ffb5c0">˶</font><font color="ffffff">•</font> ༝ <font color="ffffff">•</font><font color="#ffb5c0">˶</font>꒱ა   &nbsp wuvv u 
+      <br>     &nbsp<font color="#ff46a2">_</font>I<font color="#ff46a2">_</font>◡<font color="#ff46a2">_</font>◡I<font color="#ff46a2">_</font>
+      <br>    <font color="#ff46a2">I</font>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp             <font color="#ff46a2">I</font>
+      <br>    <font color="#ff46a2">I</font>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp             <font color="#ff46a2">I</font>
+      <br>    <font color="#98FB98">THANUSHRI</font>
+      <br>    <font color="#ff46a2">--------------</font>
     </div>
-
-    <script>
-      const colors = ["#44624a", "#89CFF0", "#6495ED", "#F4C2C2", "#E6E6FA", "#98FB98"];
-      const letters = "SHERAP";
-      let letterIndex = 0;
-
-      function getRandomLetter() {
-        const letter = letters.charAt(letterIndex);
-        letterIndex = (letterIndex + 1) % letters.length;
-        return letter;
-      }
-
-      function createFirework(x, y) {
-        const launchHeight = Math.random() * (window.innerHeight / 4) + window.innerHeight / 4;
-        const projectile = document.createElement("div");
-        projectile.classList.add("projectile");
-        document.body.appendChild(projectile);
-        projectile.style.left = `${x}px`;
-        projectile.style.top = `${y}px`;
-
-        anime({
-          targets: projectile,
-          translateY: -launchHeight,
-          duration: 1200,
-          easing: "easeOutQuad",
-          complete: () => {
-            projectile.remove();
-            createBurst(x, y - launchHeight);
-          }
-        });
-
-        playChimeSound();
-      }
-
-      function createBurst(x, y) {
-        const numLetters = 15;
-        const numSparkles = 50;
-
-        for (let i = 0; i < numLetters; i++) {
-          createParticle(x, y, false);
-        }
-
-        for (let i = 0; i < numSparkles; i++) {
-          createParticle(x, y, true);
-        }
-      }
-
-      function createParticle(x, y, isSparkle) {
-        const particle = document.createElement("div");
-        particle.classList.add(isSparkle ? "sparkle" : "particule");
-        document.body.appendChild(particle);
-        particle.style.left = `${x}px`;
-        particle.style.top = `${y}px`;
-        const angle = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 200 + 100;
-        const duration = Math.random() * 800 + 600;
-        const size = Math.random() * 0.5 + 0.3;
-
-        particle.style.fontSize = `${Math.random() * 3 + 2}px`;
-        particle.style.transform = `scale(${size})`;
-        particle.style.opacity = 1;
-
-        anime({
-          targets: particle,
-          translateX: Math.cos(angle) * speed,
-          translateY: Math.sin(angle) * speed,
-          opacity: 0,
-          scale: 0,
-          duration: duration,
-          easing: "easeOutQuad",
-          complete: () => particle.remove()
-        });
-      }
-
-      function playChimeSound() {
-        const chimeSound = document.getElementById("chime-sound");
-        chimeSound.play();
-      }
-
-      document.addEventListener("click", function(event) {
-        createFirework(event.pageX, event.pageY);
-      });
-    </script>
+    <script src="dramatic-fireworks.js"></script>
   </body>
 </html>
-
