@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  background: radial-gradient(circle, #020111, #000000);
+  overflow: hidden;
+  height: 100vh;
+  cursor: pointer;
+  font-family: "ARIAL", sans-serif;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  filter: drop-shadow(0 0 15px #0000ff)
+}
+
+.instructions {
+  font-size: 2rem;
+  z-index: 10;
+  color: 6476e0;
+  text-shadow: 0 0 10px #44ff66, 0 0 20px #44ff66, 0 0 30px #00ff00;
+  animation-duration: 5s;
+}
+
+.sherap {
+  font-size: 2rem;
+  color: 6476e0;
+  text-shadow: 0 0 10px #44ff66, 0 0 20px #44ff66, 0 0 30px #00ff00;
+}
+
+.nushy {
+  position: absolute; 
+  bottom: 8px; 
+  left: 16px;
+  text-align: left;
+  font-size: 0.7rem;
+  color: 6476e0;
+  text-shadow: 0 0 50px #ffdde8, 0 0 20px #ef6969, 0 0 100px #00ff00;
+}
+
+.projectile {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #7393B3;
+  clip-path: polygon(50% 0, 79% 90%, 2% 35%, 98% 35%, 21% 90%);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+    0 0 30px rgba(255, 255, 255, 0.6),
+    0 0 40px rgba(255, 255, 255, 0.4),
+    0 0 50px #7393B3;
+}
+
+.particule {
+  position: absolute;
+  font-size: 1.5rem; /* Reduced font size for mobile */
+  font-family: "arial", serif;
+  color: white;
+  transform: scale(0);
+  opacity: 0;
+  text-shadow: 0 0 5px #0000ff, 0 0 10px #eca7f4, 0 0 5px #0000ff;
+}
+
+.sparkle {
+  position: absolute;
+  width: 12px; /* Reduced size for mobile */
+  height: 12px; /* Reduced size for mobile */
+  background: #F8CA00;
+  clip-path: polygon(50% 0, 79% 90%, 2% 35%, 98% 35%, 21% 90%);
+  transform: scale(0);
+  opacity: 0;
+  box-shadow:
+    0 0 60px 30px #fff,
+    0 0 100px 60px #f0f,
+    0 0 140px 90px #0ff;
+}
+
+@media (max-width: 600px) {
+  .sherap {
+    font-size: 1.2rem; /* Reduced for mobile */
+  }
+  .nushy {
+    font-size: 0.5rem; /* Reduced for mobile */
+  }
+}
