@@ -81,9 +81,9 @@ function createParticle(x, y, isSparkle) {
 // Animate a particle
 function animateParticle(el, isSparkle) {
   const angle = Math.random() * Math.PI * 2; // Random direction
-  const distance = anime.random(50, 100); // Reduced distance for smaller spread
-  const duration = anime.random(800, 1500); // Shorter duration
-  const fallDistance = anime.random(10, 40); // Smaller fall effect
+  const distance = anime.random(25, 50); // Reduced distance for smaller spread
+  const duration = anime.random(600, 1100); // Shorter duration
+  const fallDistance = anime.random(5, 20); // Smaller fall effect
   const scale = isSparkle ? Math.random() * 0.3 + 0.2 : Math.random() * 0.8 + 0.3; // Reduced sizes
 
   anime
