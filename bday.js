@@ -44,8 +44,8 @@ function createFirework(x, y) {
 
 // Create a burst of particles
 function createBurst(x, y) {
-  const numLetters = 15; // Letters in the burst
-  const numSparkles = 50; // Sparkles in the burst for more dramatic effect
+  const numLetters = 10; // Letters in the burst
+  const numSparkles = 30; // Sparkles in the burst
 
   // Letters
   for (let i = 0; i < numLetters; i++) {
@@ -81,10 +81,10 @@ function createParticle(x, y, isSparkle) {
 // Animate a particle
 function animateParticle(el, isSparkle) {
   const angle = Math.random() * Math.PI * 2; // Random direction
-  const distance = anime.random(100, 200); // Increased distance for more dramatic spread
-  const duration = anime.random(1200, 2000); // Longer duration for the dramatic effect
-  const fallDistance = anime.random(20, 80); // Larger fall effect for realism
-  const scale = isSparkle ? Math.random() * 0.5 + 0.5 : Math.random() * 1 + 0.5;
+  const distance = anime.random(50, 100); // Reduced distance for smaller spread
+  const duration = anime.random(800, 1500); // Shorter duration
+  const fallDistance = anime.random(10, 40); // Smaller fall effect
+  const scale = isSparkle ? Math.random() * 0.3 + 0.2 : Math.random() * 0.8 + 0.3; // Reduced sizes
 
   anime
     .timeline({
@@ -100,7 +100,7 @@ function animateParticle(el, isSparkle) {
       opacity: [1, 0.9]
     })
     .add({
-      translateY: `+=${fallDistance}px`, // Larger gravity effect
+      translateY: `+=${fallDistance}px`, // Smaller gravity effect
       opacity: [0.9, 0],
       easing: "easeInCubic",
       duration: duration / 2
