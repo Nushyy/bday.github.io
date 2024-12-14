@@ -1,172 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Fireworks Website</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <title>Happy Birthday Baby</title>
     <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
+      body {
+        margin: 0;
+        background: radial-gradient(circle, #020111, #000000);
+        overflow: hidden;
+        height: 100vh;
+        cursor: pointer;
+        font-family: "ARIAL", sans-serif;
+        color: white;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        filter: drop-shadow(0 0 15px #0000ff);
+      }
 
-        h1, p {
-            text-align: center;
-        }
+      .instructions {
+        font-size: 2rem;
+        z-index: 10;
+        color: #6476e0;
+        text-shadow: 0 0 10px #44ff66, 0 0 20px #44ff66, 0 0 30px #00ff00;
+        animation-duration: 5s;
+      }
 
-        /* Responsive Design for Phone, Tablet, and Laptop Screens */
-        @media only screen and (max-width: 600px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-            p {
-                font-size: 1rem;
-            }
-        }
+      .sherap {
+        font-size: 2rem;
+        color: #6476e0;
+        text-shadow: 0 0 10px #44ff66, 0 0 20px #44ff66, 0 0 30px #00ff00;
+      }
 
-        @media only screen and (min-width: 601px) and (max-width: 1024px) {
-            h1 {
-                font-size: 2rem;
-            }
-            p {
-                font-size: 1.2rem;
-            }
-        }
+      .nushy {
+        position: absolute;
+        bottom: 8px;
+        left: 16px;
+        text-align: left;
+        font-size: 0.7rem;
+        color: #6476e0;
+        text-shadow: 0 0 50px #ffdde8, 0 0 20px #ef6969, 0 0 100px #00ff00;
+      }
 
-        @media only screen and (min-width: 1025px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            p {
-                font-size: 1.5rem;
-            }
-        }
+      .projectile {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: #7393b3;
+        clip-path: polygon(50% 0, 79% 90%, 2% 35%, 98% 35%, 21% 90%);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.4), 0 0 50px #7393b3;
+      }
 
-        .fireworks {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-        }
+      .particule {
+        position: absolute;
+        font-size: 2rem;
+        font-family: "arial", serif;
+        color: white;
+        transform: scale(0);
+        opacity: 0;
+        text-shadow: 0 0 5px #0000ff, 0 0 10px #eca7f4, 0 0 5px #0000ff;
+      }
 
-        iframe {
-            width: 100%;
-            height: 100vh;
-            border: none;
-        }
+      .sparkle {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background: #f8ca00;
+        clip-path: polygon(50% 0, 79% 90%, 2% 35%, 98% 35%, 21% 90%);
+        transform: scale(0);
+        opacity: 0;
+        box-shadow: 0 0 60px 30px #fff, 0 0 100px 60px #f0f, 0 0 140px 90px #0ff;
+      }
 
-        .content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            top: 20%;
+      /* Media Queries for Responsiveness */
+      @media (max-width: 600px) {
+        .instructions {
+          font-size: 1.5rem;
         }
-
-        .content h1 {
-            font-size: 3rem;
+        .sherap {
+          font-size: 1.5rem;
         }
-
-        .content p {
-            font-size: 1.5rem;
+        .nushy {
+          font-size: 0.6rem;
         }
-
-        /* For smaller devices (phones) */
-        @media (max-width: 600px) {
-            .content h1 {
-                font-size: 2rem;
-            }
-            .content p {
-                font-size: 1rem;
-            }
+        .projectile {
+          width: 15px;
+          height: 15px;
         }
-
-        /* For tablets and ipads */
-        @media (min-width: 601px) and (max-width: 1024px) {
-            .content h1 {
-                font-size: 2.5rem;
-            }
-            .content p {
-                font-size: 1.2rem;
-            }
+        .particule {
+          font-size: 1.5rem;
         }
+      }
 
-        /* For large screens (laptops) */
-        @media (min-width: 1025px) {
-            .content h1 {
-                font-size: 3rem;
-            }
-            .content p {
-                font-size: 1.5rem;
-            }
+      @media (max-width: 900px) {
+        .instructions {
+          font-size: 1.8rem;
         }
+        .sherap {
+          font-size: 1.8rem;
+        }
+        .nushy {
+          font-size: 0.65rem;
+        }
+        .projectile {
+          width: 18px;
+          height: 18px;
+        }
+      }
 
+      @media (max-width: 1200px) {
+        .instructions {
+          font-size: 2rem;
+        }
+        .sherap {
+          font-size: 2rem;
+        }
+      }
+
+      /* For general screen sizes (laptop, larger devices) */
+      @media (min-width: 1200px) {
+        .instructions {
+          font-size: 2.2rem;
+        }
+        .sherap {
+          font-size: 2.2rem;
+        }
+      }
+
+      /* Make sure everything scales and remains in the middle */
+      iframe {
+        max-width: 100%;
+        max-height: 100%;
+      }
     </style>
-</head>
-<body>
-    <div class="fireworks">
-        <iframe src="https://www.youtube.com/embed/YZ9KfcV9gnY?autoplay=1&loop=1&playlist=YZ9KfcV9gnY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </head>
+  <body>
+    <audio id="chime-sound" src="https://example.com/chime1.mp3" preload="auto"></audio>
+
+    <div style="position: fixed; top: 20px; left: 20px; filter: drop-shadow(0 0 15px #f44336); opacity: 75%;">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2y3opu08ybnMRziQFdvcZv?utm_source=generator&theme=0" width="100%" height="100" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
 
-    <div class="content">
-        <h1>Welcome to My Fireworks Show</h1>
-        <p>Enjoy the display! If it doesn't load immediately, give it a moment!</p>
+    <div class="instructions"></div>
+    <div class="sherap">HAPPY BIRTHDAY SHERAP</div>
+    <div class="nushy">
+      <font color="#FFD147">**</font>
+      <br><font color="#ff46a2">_</font>I<font color="#ff46a2">_</font>
+      <br><font color="#ff46a2">__I___I__</font>
+      <br><font color="#ff46a2">I________I</font> ~<font color="red">♡︎</font>
+      <br>૮꒰ <font color="#ffb5c0">˶</font><font color="ffffff">•</font> ༝ <font color="ffffff">•</font><font color="#ffb5c0">˶</font>꒱ա &nbsp wuvv u
+      <br>&nbsp<font color="#ff46a2">_</font>I<font color="#ff46a2">_</font>◡<font color="#ff46a2">_</font>◡I<font color="#ff46a2">_</font>
+      <br><font color="#ff46a2">I</font>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<font color="#ff46a2">I</font>
+      <br><font color="#ff46a2">I</font>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<font color="#ff46a2">I</font>
+      <br><font color="#98FB98">THANUSHRI</font>
+      <br><font color="#ff46a2">--------------</font>
     </div>
 
     <script>
-        // Simple JS for fireworks effects (this is just an example)
-        // You can enhance this with actual fireworks library or animation
+      const colors = ["#44624a", "#89CFF0", "#6495ED", "#F4C2C2", "#E6E6FA", "#98FB98"];
+      const letters = "SHERAP";
+      let letterIndex = 0;
 
-        // Simple example of fireworks JS (use actual fireworks library if needed)
-        window.addEventListener('resize', function() {
-            document.body.style.overflow = 'hidden';
+      function getRandomLetter() {
+        const letter = letters.charAt(letterIndex);
+        letterIndex = (letterIndex + 1) % letters.length;
+        return letter;
+      }
+
+      function createFirework(x, y) {
+        const launchHeight = Math.random() * (window.innerHeight / 4) + window.innerHeight / 4;
+        const projectile = document.createElement("div");
+        projectile.classList.add("projectile");
+        document.body.appendChild(projectile);
+        projectile.style.left = `${x}px`;
+        projectile.style.top = `${y}px`;
+
+        anime({
+          targets: projectile,
+          translateY: -launchHeight,
+          duration: 1200,
+          easing: "easeOutQuad",
+          complete: () => {
+            projectile.remove();
+            createBurst(x, y - launchHeight);
+          }
         });
 
-        // Fireworks animation
-        function createFirework() {
-            const firework = document.createElement('div');
-            firework.style.position = 'absolute';
-            firework.style.top = `${Math.random() * window.innerHeight}px`;
-            firework.style.left = `${Math.random() * window.innerWidth}px`;
-            firework.style.width = '10px';
-            firework.style.height = '10px';
-            firework.style.backgroundColor = 'white';
-            firework.style.borderRadius = '50%';
-            firework.style.animation = 'explode 1s forwards';
+        playChimeSound();
+      }
 
-            document.body.appendChild(firework);
+      function createBurst(x, y) {
+        const numLetters = 15;
+        const numSparkles = 50;
 
-            setTimeout(() => {
-                firework.remove();
-            }, 1000);
+        for (let i = 0; i < numLetters; i++) {
+          createParticle(x, y, false);
         }
 
-        setInterval(createFirework, 100); // Creates fireworks every 100ms
+        for (let i = 0; i < numSparkles; i++) {
+          createParticle(x, y, true);
+        }
+      }
+
+      function createParticle(x, y, isSparkle) {
+        const particle = document.createElement("div");
+        particle.classList.add(isSparkle ? "sparkle" : "particule");
+        document.body.appendChild(particle);
+        particle.style.left = `${x}px`;
+        particle.style.top = `${y}px`;
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 200 + 100;
+        const duration = Math.random() * 800 + 600;
+        const size = Math.random() * 0.5 + 0.3;
+
+        particle.style.fontSize = `${Math.random() * 3 + 2}px`;
+        particle.style.transform = `scale(${size})`;
+        particle.style.opacity = 1;
+
+        anime({
+          targets: particle,
+          translateX: Math.cos(angle) * speed,
+          translateY: Math.sin(angle) * speed,
+          opacity: 0,
+          scale: 0,
+          duration: duration,
+          easing: "easeOutQuad",
+          complete: () => particle.remove()
+        });
+      }
+
+      function playChimeSound() {
+        const chimeSound = document.getElementById("chime-sound");
+        chimeSound.play();
+      }
+
+      document.addEventListener("click", function(event) {
+        createFirework(event.pageX, event.pageY);
+      });
     </script>
-
-    <style>
-        @keyframes explode {
-            0% {
-                transform: scale(0);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(3);
-                opacity: 0.5;
-            }
-            100% {
-                transform: scale(0);
-                opacity: 0;
-            }
-        }
-    </style>
-
-</body>
+  </body>
 </html>
+
